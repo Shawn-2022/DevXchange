@@ -8,11 +8,12 @@ urlpatterns = [
     
     path('register/',views.registerUser,name="register"),
            
-    
     path('',views.home,name="home"),
     
     path('room/<str:id>/',views.room,name="room"),
     
+    path('profile/<str:id>/',views.userProfile,name="user-profile"),
+        
     path('create-room/',views.createRoom,name="create-room"),
     
     path('update-room/<str:id>/',views.updateRoom,name="update-room"),
