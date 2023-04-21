@@ -1,3 +1,6 @@
+complete project rename if possible
+
+
 1 topic selection for special symbols needs a fix
 2 message edit button placement needs some work
 3 user-profile needs some work and added options like (photo,username and name 2 different items with relationship ,about/user descriptions ,email id use ,)
