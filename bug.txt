@@ -2,12 +2,12 @@ complete project rename if possible
 
 
 1 topic selection for special symbols needs a fix
-2 message edit button placement needs some work
+2 message edit button placement needs some work done<<<>><
 3 user-profile needs some work and added options like (photo,username and name 2 different items with relationship ,about/user descriptions ,email id use ,)
 4 forget password,update password 
 5 better login and registration page
 6 topic container needs to be dynamic regarding total rooms in selected category ,or total number of rooms
 7 recent activity should be scrollable independent of web page ,rooms too
-8 logo in browser tab and logo
+8 logo in browser tab and logo <done>
 9 bottom bar would be nice too
 10 about page
