@@ -2,12 +2,10 @@ from django.shortcuts import render ,redirect
 from django.contrib import messages
 from django.http import HttpResponse
 from django.db.models import Q
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .models import Room,Topic,Message
-from .forms import RoomForm,UserForm
+from .models import Room,Topic,Message,User
+from .forms import RoomForm,UserForm,MyUserRegistrationForm
 
 def login_register_Page(request):
     page = 'login'
@@ -15,15 +13,15 @@ def login_register_Page(request):
         return redirect('home')
     
     if request.method == 'POST':
-        username = request.POST.get('username').lower()
+        email = request.POST.get('email')
         password = request.POST.get('password')
 
         try:
-            user = User.objects.get(username=username)
+            user = User.objects.get(email=email)
         except:
             messages.error(request,'User does not exist !')
             
-        user = authenticate(request,username=username,password=password)
+        user = authenticate(request,email=email,password=password)
         
         if user is not None:
             login(request,user)
@@ -38,21 +36,21 @@ def logoutUser(request):
     return redirect('home')
 
 def registerUser(request):
-    # page = 'register'
-    form = UserCreationForm()
+    form = MyUserRegistrationForm()
     
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = MyUserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower()
+            user.username = user.username.lower() # use lower() to convert to lowercase
             user.save()
-            login(request,user)
+            login(request, user)
             return redirect('home')
         else:
-            messages.error(request,'Registration Failed!!!')
+            messages.error(request, 'Registration Failed!!!')
             
-    return render (request,'base/login_register.html',{'form':form})
+    return render(request, 'base/login_register.html', {'form':form})
+
 
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
@@ -168,7 +166,7 @@ def updateUser(request):
     form = UserForm(instance=user)
     
     if request.method == 'POST':
-        form = UserForm(request.POST,instance=user)
+        form = UserForm(request.POST,request.FILES,instance=user)
         if form.is_valid():
             form.save()
             return redirect('user-profile',id=user.id)

@@ -16,8 +16,8 @@
             <form class="form" method="POST" action="">
               {% csrf_token %}
               <div class="form__group form__group">
-                <label for="room_name">Username</label>
-                <input id="username" name="username" type="text" placeholder="e.g. dennis_ivy" />
+                <label for="room_name">email</label>
+                <input id="username" name="email" type="text" placeholder="e.g.someone@somthing.com" />
               </div>
               <div class="form__group">
                 <label for="password">Password</label>
@@ -58,11 +58,11 @@
         </div>
       </div>
       {% else %}
-      <div class="container_logout">
+      <div class="container_register">
         <div class="layout__box">
           <div class="layout__boxHeader">
             <div class="layout__boxTitle">
-              <h3>Login</h3>
+              <h3>Register</h3>
             </div>
           </div>
           <div class="layout__body">
@@ -101,7 +101,7 @@
 
             <div class="auth__action">
               <p>Already Registered ?</p>
-              <a href="{% url 'login' %}" class="btn btn--link">Sign Up</a>
+              <a href="{% url 'login' %}" class="btn btn--link">Login</a>
             </div>
           </div>
         </div>

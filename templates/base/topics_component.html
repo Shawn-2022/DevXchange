@@ -9,7 +9,7 @@
     {% for Topic in Topics  %}
 
       <li>
-        <a href = "{% url 'home' %}?q={{Topic.name}}">{{Topic.name}} <span>{{Topic.room_set.all.count}}</span></a>
+        <a href = "{% url 'home' %}?q={{Topic.name|urlencode}}">{{Topic.name}} <span>{{Topic.room_set.all.count}}</span></a>
       </li>
     {% endfor %}
     </ul>
