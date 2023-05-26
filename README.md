@@ -23,8 +23,8 @@ The following technologies were used in the development of DevXchange:
 
 ## Installation
 To run DevXchange locally, follow these steps:
-1. Clone the repository: `git clone https://github.com/your-username/devxchange.git`
-2. Navigate to the project directory: `cd devxchange`
+1. Clone the repository: `git clone [https://github.com/Shawn-2022/DevXchange.git]`
+2. Navigate to the project directory: `cd DevXchange`
 3. Install the required dependencies: `pip install -r requirements.txt`
 
 ## Usage
