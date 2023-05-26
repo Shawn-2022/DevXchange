@@ -40,6 +40,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Thank you for your interest in DevXchange. For any questions or feedback, please contact me at [your-email@example.com].
-
 Happy coding!
